@@ -1,24 +1,9 @@
-# README
+# Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. `docker-compose build`
+2. `docker-compose up` (this command won't exit -- start a new shell to run the next commands in)
+3. `docker-compose run web rake db:create`
 
-Things you may want to cover:
+To get a shell inside the container (ex: to run rails commands):
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. `docker exec -it rails-demo-app_web_1 /bin/bash`
