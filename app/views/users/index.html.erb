@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<% @users.each do |user| %>
+  <%= render "user", user: user %>
+  <%= link_to "View User", user_by_id_path(user.id) %>
+  <%= link_to 'Edit', edit_user_path(user) %>
+  <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <hr/>
+<% end %>
+
+<%= link_to 'New User', new_user_path %>
