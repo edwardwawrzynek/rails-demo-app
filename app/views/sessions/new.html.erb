@@ -1,0 +1,13 @@
+<h2>Log In</h2>
+
+<%= form_for(:session, url: :session_create, method: :post) do |form| %>
+  <div class="field">
+    <%= form.label :email, "Email" %>
+    <%= form.email_field :email, class: "email-input" %>
+  </div>
+  <div class="field">
+    <%= form.label :password, "Password" %>
+    <%= form.password_field :password, class: "password-input" %>
+  </div>
+  <%= form.submit "Log In", class: "submit" %>
+<% end %>

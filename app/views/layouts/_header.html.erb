@@ -1,5 +1,11 @@
 <div class="header-container">
   <h2>Demo App!</h2>
   <%= link_to "Users Index", users_path %>
+  <% if user.nil? %>
+    <%= button_to "Log In", session_new_path, method: :get %>
+  <% else %>
+    <div class="username"><%= user.username %></div>
+    <%= button_to "Log Out", session_destroy_path, method: :delete %>
+  <% end %>
   <hr/>
 <div>
