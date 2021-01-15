@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  belongs_to :user
+
   has_attached_file :image,
     path: ':rails_root/public/images/:id/:style/:filename',
     url: '/images/:id/:style/:filename',

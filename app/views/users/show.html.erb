@@ -2,5 +2,9 @@
 
 <%= render "user", user: @user %>
 
+<% @user.posts.each do |post| %>
+  <%= render "posts/post", post: post %>
+<% end %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
