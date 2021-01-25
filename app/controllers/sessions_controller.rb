@@ -6,14 +6,20 @@ class SessionsController < ApplicationController
   def create
     email = params[:session][:email]
     password = params[:session][:password]
-    user = User.find_by(email: email, password: password)
+    user = User.find_by(email: email)
     if user.nil?
       flash[:warning] = "Invalid Email or Password"
       redirect_to :session_new
     else
-      session[:user_id] = user.id
-      flash[:info] = "Log In Successful"
-      redirect_to '/'
+      user = user.authenticate(password)
+      unless user
+        flash[:warning] = "Invalid Email or Password"
+        redirect_to :session_new
+      else
+        session[:user_id] = user.id
+        flash[:info] = "Log In Successful"
+        redirect_to '/'
+      end
     end
   end
 

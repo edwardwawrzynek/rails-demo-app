@@ -1,7 +1,7 @@
 class User < ApplicationRecord
+  has_secure_password
   has_many :posts
 
-  validates :username, :password, :email, presence: true
-  validates_length_of :password, minimum: 8
+  validates :username, :email, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 end
